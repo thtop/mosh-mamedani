@@ -1,16 +1,8 @@
 
-// console.log() // globle
+// var sayHello = function() {
 
-// setTimeout()
-// clearTimeout()
+// }
 
-// setInterval()
-// clearInterval()
+// window.sayHello()
 
-// window.console.log()
-
-var message = ''
-//window.message
-//global.console.log()
-
-console.log(global.message) // undefined
+console.log(module)
