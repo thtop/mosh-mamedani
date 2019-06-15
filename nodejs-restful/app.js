@@ -1,6 +1,16 @@
 
-function sayHello(name) {
-    console.log('Hello ' + name)
-}
+// console.log() // globle
 
-sayHello('Preaw')
+// setTimeout()
+// clearTimeout()
+
+// setInterval()
+// clearInterval()
+
+// window.console.log()
+
+var message = ''
+//window.message
+//global.console.log()
+
+console.log(global.message) // undefined
