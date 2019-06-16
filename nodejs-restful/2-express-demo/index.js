@@ -1,8 +1,22 @@
+const morgan = require('morgan')
+const helmet = require('helmet')
 const Joi = require('joi')
+const logger = require('./logger')
 const express = require('express')
 const app = express()
 
-app.use(express.json())
+app.use(express.json()) // req.body
+app.use(express.urlencoded({ extended: true })) // key=value&key=value
+app.use(express.static('public'))
+app.use(helmet())
+app.use(morgan('tiny'))
+
+app.use(logger)
+
+app.use((req, res, next) => {
+    console.log('Autenticating...')
+    next()
+})
 
 const courses = [
     {id: 1, name: 'course1'},
