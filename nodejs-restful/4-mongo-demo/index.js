@@ -29,7 +29,6 @@ async function createCourse() {
 async function getCourses() {
     const pageNumber = 2;
     const pageSize = 10;
-    // /api/courses?pageNumber=2&pageSize=10
 
     const courses = await Course
         .find({ author: 'Thamonwan', isPublished: true })
@@ -40,4 +39,22 @@ async function getCourses() {
     console.log(courses);
 }
 
-getCourses();
+async function updateCourse(id) {
+    // Approach: Query first
+    // findById()
+    // Modify its properties
+    // save()
+    const course = await Course.findById(id);
+    if (!course) {
+        console.log('Not found.');
+        return;
+    }
+
+    course.isPublished = true;
+    course.author = 'Another Author';
+
+    const result =  await course.save();
+    console.log(result);
+}
+
+updateCourse('5d098d254f057c36a4112aae')
